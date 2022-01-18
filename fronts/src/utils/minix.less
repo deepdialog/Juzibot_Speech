@@ -1,0 +1,6 @@
+.lineclamp (@line:2) {
+  overflow: hidden; /* 超出隐藏 */
+  text-overflow: ellipsis; /* 文本超出呈现方式：省略号 */
+  display: -webkit-box; /* 盒模型 */
+  -webkit-line-clamp: @line; /* 限制文本行数 */
+}

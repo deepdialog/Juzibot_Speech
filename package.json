@@ -1,0 +1,56 @@
+{
+  "name": "juzibot",
+  "version": "0.0.17",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src/",
+    "lintfront": "eslint fronts/src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qhduan/juzibot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qhduan/juzibot/issues"
+  },
+  "homepage": "https://github.com/qhduan/juzibot#readme",
+  "dependencies": {
+    "@elastic/elasticsearch": "^7.15.0",
+    "@microsoft/recognizers-text-suite": "^1.3.0",
+    "@opensearch-project/opensearch": "^1.0.0",
+    "brolog": "1.13.6",
+    "chardet": "^1.4.0",
+    "cheerio": "^1.0.0-rc.10",
+    "cors": "^2.8.5",
+    "eslint-plugin-react": "^7.26.1",
+    "express": "^4.17.1",
+    "file-box": "0.16.8",
+    "lodash": "^4.17.21",
+    "mammoth": "^1.4.19",
+    "mime": "^3.0.0",
+    "minio": "^7.0.19",
+    "moment": "^2.29.1",
+    "node-cron": "^3.0.0",
+    "node-fetch": "^3.0.0",
+    "pdf-to-text": "0.0.7",
+    "puppeteer-core": "^11.0.0",
+    "qrcode-terminal": "^0.12.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "tempfile": "^4.0.0",
+    "uuid": "^8.3.2",
+    "wechaty": "^0.62.3",
+    "wechaty-puppet": "^0.41.7",
+    "yaml": "^1.10.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.1.0",
+    "jsdoc": "^3.6.7",
+    "jsdoc-to-markdown": "^7.1.0"
+  }
+}

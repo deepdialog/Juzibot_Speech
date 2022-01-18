@@ -1,0 +1,7 @@
+[
+    {
+      "id": "reboot-juzibot",
+      "execute-command": "/opt/JuziBot/scripts/reboot.sh",
+      "command-working-directory": "/opt/JuziBot"
+    }
+]

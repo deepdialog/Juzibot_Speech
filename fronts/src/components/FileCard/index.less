@@ -1,0 +1,58 @@
+@import './../../utils/minix.less';
+
+
+.card {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+
+.fileCardBody {
+  max-width: 600px;
+  margin: auto;
+}
+
+.overflowHiding {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.fileCardTitle {
+  font-size: 20px;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  margin-bottom: 10px;
+  border-bottom: 1px solid slategray;
+}
+
+.fileCardContent {
+  .lineclamp(4);
+}
+
+.fileCardImgContent {
+  display: flex;
+  width: 100%;
+}
+.fileCardImgContent > div {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  height: 80px;
+  -webkit-line-clamp: 4;
+  width: 85%;
+}
+
+.fileCardFooter > div {
+  width: 100%;
+  margin-top: 20px;
+}
