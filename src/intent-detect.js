@@ -149,7 +149,7 @@ export async function msgIntentDetect(msg, payload) {
  * @param payload 一些附加状态
  * @returns 意图
  */
-async function textIntentDetect(msg, payload) {
+export async function textIntentDetect(msg, payload) {
     let text = msg.text()
 
     // 去掉可能的 @xxx
@@ -288,3 +288,11 @@ async function textIntentDetect(msg, payload) {
         intent: 'todo',
     }
 }
+
+
+//ES 只需要在测试函数前加上 export导出
+//commonjs
+//module.exports = {
+//     intentDetect, // 消息意图类别检测
+//     textIntentDetect //文本意图识别 
+// }

@@ -5,9 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src/",
-    "lintfront": "eslint fronts/src/"
+    "lintfront": "eslint fronts/src/",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
     "mammoth": "^1.4.19",
     "mime": "^3.0.0",
     "minio": "^7.0.19",
+    "mocha": "^9.1.4",
     "moment": "^2.29.1",
     "node-cron": "^3.0.0",
     "node-fetch": "^3.0.0",
