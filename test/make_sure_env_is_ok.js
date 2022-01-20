@@ -161,25 +161,25 @@ var _expected_value_2 = {
 ///////////////
 // 更新重启&&成熟的机器人 _4
 ///////////////
-const args_4 = {
-  text: () => {
-      return '更新重启'
-  }
-}
+// const args_4 = {
+//   text: () => {
+//       return '更新重启'
+//   }
+// }
 
-let payload_4 = {
-  roomTopic: null,
-  isRoom: false,
-  text: args_4.text()
-}
+// let payload_4 = {
+//   roomTopic: null,
+//   isRoom: false,
+//   text: args_4.text()
+// }
 
-var _expected_value_4 = {
+// var _expected_value_4 = {
   
-  intent: null,
-  isRoom: false,
-  roomTopic: null,
-  text: args_4.text()
-}
+//   intent: null,
+//   isRoom: false,
+//   roomTopic: null,
+//   text: args_4.text()
+// }
 
 // const gg = await textIntentDetect(args_4,payload_4);
 // console.log(gg);
@@ -188,17 +188,17 @@ var _expected_value_4 = {
 ///////////////
 // 标签 _5
 ///////////////
-const args_5 = {
-  text: () => {
-      return '标签'
-  }
-}
+// const args_5 = {
+//   text: () => {
+//       return '标签'
+//   }
+// }
 
-let payload_5 = {
-  roomTopic: null,
-  isRoom: false,
-  text: args_5.text()
-}
+// let payload_5 = {
+//   roomTopic: null,
+//   isRoom: false,
+//   text: args_5.text()
+// }
 
 // var gg_data;
 // let rawdata = fs.readFile('test/biaoqian.txt','utf-8',function(err,data){
