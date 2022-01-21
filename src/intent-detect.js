@@ -288,11 +288,3 @@ export async function textIntentDetect(msg, payload) {
         intent: 'todo',
     }
 }
-
-
-//ES 只需要在测试函数前加上 export导出
-//commonjs
-//module.exports = {
-//     intentDetect, // 消息意图类别检测
-//     textIntentDetect //文本意图识别 
-// }
