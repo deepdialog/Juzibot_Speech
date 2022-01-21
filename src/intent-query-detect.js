@@ -134,7 +134,10 @@ export async function queryIntent(text, belong='general', threshold=0.8, k=3) {
         index: INDEX,
         body,
     })
-    console.log('intent-vector-query', rets.body.hits.hits)
+    
+    
+    //console.log('intent-vector-query', rets.body.hits.hits)
+    
     let results = []
     try {
         results = rets.body.hits.hits.map(item => {
@@ -151,7 +154,9 @@ export async function queryIntent(text, belong='general', threshold=0.8, k=3) {
     } catch(e) {
         console.error(e)
     }
-    console.log('intent-vector-query', results)
+    
+    //console.log('intent-vector-query', results)
+    
     if (results.length && results[0].score && results[0].score > threshold) {
         return results[0].intent
     }
