@@ -5,7 +5,7 @@ import { bot } from '../src/bot.js'
 import { url } from 'inspector'
 import fs from 'fs'
 
-describe('keyword_jz.js 👋',() => {
+describe('filesearch_test.js 👋',() => {
     
 ////////////////////
 // 搜索指令测试
