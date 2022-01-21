@@ -21,26 +21,9 @@ describe('reboot_test.js 👋',() => {
     text: args_4.text()
     }
 
-    // var _expected_value_4 = {
-    
-    // intent: null,
-    // isRoom: false,
-    // roomTopic: null,
-    // text: args_4.text()
-    // }
-
-    // var _expected_value_4 = fs.readFileSync('test/reboot.txt','utf-8');
-    // const xx  = await textIntentDetect(args_4,payload_4);
-    // console.log(xx);
-
-
     it('更新重启指令', async () => {
         const query = { roomTopic: null, isRoom: false, text: '更新重启', intent: 'todo' };
         const _res_4 = await textIntentDetect(args_4,payload_4); 
-        //console.log([a[4],a[7]]);
-        //console.log("123");
-        //console.log(JSON.stringify(_res_4)); 
         assert.deepEqual(query,_res_4);
-        //assert.deepEqual(1,1);
     });
 })
