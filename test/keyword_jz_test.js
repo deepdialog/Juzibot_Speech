@@ -28,14 +28,11 @@ describe('keyword_jz.js 👋',() => {
         intent: 'url',
         url: 'https://me.w0x7ce.eu'
     }
-
     it('🍊提取', async () => {
         const query3= { roomTopic: null, isRoom: false, text: '', intent: 'todo' };
         const _res_3 = await textIntentDetect(args_3,payload_3); 
         assert.deepEqual(_res_3,query3);
     });
-
-  
- 
 });
+
     

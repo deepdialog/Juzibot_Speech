@@ -27,7 +27,6 @@ describe('myfile_test.js 👋',() => {
         text: '我的文件 txt.jpg',
         intent: 'todo'
       }
-
     it('💰我的文件', async () => {
         
         const _res_8 = await textIntentDetect(args_8,payload_8); 

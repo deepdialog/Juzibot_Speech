@@ -28,11 +28,11 @@ describe('biaoqian_test.js 👋',() => {
         intent: 'retag',
         newTag: ' 可怕'
       }
-
-    it('🏷️标签测试', async () => {
-        
+    it('🏷️标签测试', async () => {   
         const _res_6 = await textIntentDetect(args_6,payload_6); 
         assert.deepEqual(_res_6,_expected_value_6);
     });
 });
+
+
     

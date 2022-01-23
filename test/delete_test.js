@@ -27,7 +27,6 @@ describe('delete_test.js 👋',() => {
         text: '删除文件 txt.jpg',
         intent: 'todo'
       }
-
     it('🚮删除文件', async () => {
         
         const _res_7 = await textIntentDetect(args_7,payload_7); 
@@ -35,4 +34,6 @@ describe('delete_test.js 👋',() => {
         assert.deepEqual(_res_7,_expected_value_7);
     });
 });
+
+
     

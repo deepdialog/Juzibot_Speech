@@ -10,27 +10,10 @@ import fs from 'fs'
 try {
     // let r = await hello();
     // assert.strictEqual(r, 15);
-    console.log("      😊")
+    console.log("      😊  w0x7ce")
     console.log(' Juzibot v1.0 测试 🔥');
     console.log(' 纯文本 意图测试src/intent-detect.js')
     //done();
 } catch (err) {
     done(err);
 }
-
-//promise 转换 无意义 但具有参考价值
-const promisic = function (func) {
-    return function (params = {}) {
-      return new Promise((resolve, reject) => {
-        const args = Object.assign(params, {
-          success: (res) => {
-            resolve(res);
-          },
-          fail: (error) => {
-            reject(error);
-          }
-        });
-        func(args);
-      });
-    };
-  };
