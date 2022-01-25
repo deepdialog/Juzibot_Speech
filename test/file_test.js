@@ -10,25 +10,34 @@ describe('myfile_test.js 👋',() => {
 // 文件 功能检测  
 ///////////////////
 
-    const args_9 = {
+    var test_msg = new Array();
+    var test_payload = new Array();
+    var test_result = new Array();
+    var i = 1;
+
+    test_msg[i] = {
         text: () => {
-            return '文件'
+            return '文件 a 搜索群文件 '
+            }
         }
-    }
-    
-    let payload_9 = {
+    test_payload[i] =  {
         roomTopic: null,
         isRoom: false,
-        text: args_9.text()
+        text: test_msg[i].text()
     }
-    var _expected_value_9 = { roomTopic: null, isRoom: false, text: '文件', intent: 'todo' }
+    test_result[i] = {
+        intent: "search-file",
+        roomTopic: null,
+        isRoom: false,
+        keywords: "文件",
+        text: "搜索文件"       
+    }
 
-    it('文件命令', async () => {
+    it(String(i), async () => {
+        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+        assert.deepEqual(_res,test_result[i]);
         
-        const _res_9 = await textIntentDetect(args_9,payload_9); 
-        //console.log(_res_9);
-        assert.deepEqual(_res_9,_expected_value_9);
-    });
+    }); 
 });
 
     

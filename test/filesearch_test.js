@@ -38,6 +38,31 @@ describe('filesearch_test.js 👋',() => {
         assert.deepEqual(_res,test_result[i]);
         
     }); 
+
+    i++;
+    test_msg[i] = {
+        text: () => {
+            return '搜索群文件'
+            }
+        }
+    test_payload[i] =  {
+        roomTopic: null,
+        isRoom: false,
+        text: test_msg[i].text()
+    }
+    test_result[i] = {
+        intent: "search-file",
+        roomTopic: null,
+        isRoom: false,
+        keywords: "群文件",
+        text: "搜索群文件"       
+    }
+
+    it(String(i), async () => {
+        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+        assert.deepEqual(_res,test_result[i]);
+        
+    }); 
 });
 
     

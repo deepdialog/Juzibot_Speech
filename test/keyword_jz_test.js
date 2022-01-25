@@ -221,7 +221,7 @@ describe('keyword_jz.js 👋',() => {
     i++;
     test_msg[i] = {
         text: () => {
-            return '\ ads'
+            return '\\ ds'
             }
         }
     test_payload[i] =  {
