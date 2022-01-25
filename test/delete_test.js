@@ -43,7 +43,7 @@ describe('delete_test.js 👋',() => {
     i++
     test_msg[i] = {
         text: () => {
-            return '文件  2 搜索群文件 '
+            return '删除文件 6 搜索文件 '
             }
         }
     test_payload[i] =  {
@@ -56,8 +56,8 @@ describe('delete_test.js 👋',() => {
         roomTopic: null,
         isRoom: false,
         keywords: " ",
-        number : 2,
-        text: "文件  2 搜索群文件 "       
+        number : 6,
+        text: "删除文件 6 搜索文件 "       
     }
 
     it(String(i), async () => {
@@ -66,31 +66,6 @@ describe('delete_test.js 👋',() => {
         
     });
 
-    i++
-    test_msg[i] = {
-        text: () => {
-            return '文件  9 搜索文件 '
-            }
-        }
-    test_payload[i] =  {
-        roomTopic: null,
-        isRoom: false,
-        text: test_msg[i].text()
-    }
-    test_result[i] = {
-        intent: "get-search-file",
-        roomTopic: null,
-        isRoom: false,
-        keywords: " ",
-        number : 9,
-        text: "文件  9 搜索文件 "       
-    }
-
-    it(String(i), async () => {
-        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-        assert.deepEqual(_res,test_result[i]);
-        
-    });
 });
 
 
