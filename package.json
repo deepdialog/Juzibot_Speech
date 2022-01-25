@@ -7,6 +7,7 @@
   "scripts": {
     "lint": "eslint src/",
     "lintfront": "eslint fronts/src/",
+    "linttest": "eslint test/",
     "test": "mocha"
   },
   "repository": {

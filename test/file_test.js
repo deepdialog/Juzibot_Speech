@@ -1,9 +1,8 @@
 import assert from 'assert'
-import { intentDetect } from '../src/intent-detect.js'  // 待测试
 import { textIntentDetect } from '../src/intent-detect.js' //测试
-import { bot } from '../src/bot.js'
-import { url } from 'inspector'
-import fs from 'fs'
+import mocha from 'mocha'
+var describe = mocha.describe
+var it = mocha.it
 
 describe('myfile_test.js 👋',() => {
     

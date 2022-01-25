@@ -67,13 +67,19 @@ export async function intentDetect(msg) {
  * @returns 一个包含意图的结构体
  */
 export async function msgIntentDetect(msg, payload) {
-
+    
     // https://wechaty.js.org/docs/api/message/#messagetype--messagetype
 
     // 文件意图保存
     if ([
         bot.Message.Type.Attachment,  // 包括文档
     ].includes(msg.type())) {
+
+        // console.log("111111111111\n11111111111111\n1111111111\n");
+        // console.log(msg);
+        // console.log("111111111111\n11111111111111\n1111111111\n");
+
+
         const fileBox = await msg.toFileBox()
         return {
             ...payload,
@@ -87,6 +93,8 @@ export async function msgIntentDetect(msg, payload) {
         bot.Message.Type.Image,
     ].includes(msg.type())) {
         const fileBox = await msg.toFileBox()
+
+
         return {
             ...payload,
             intent: 'file',
