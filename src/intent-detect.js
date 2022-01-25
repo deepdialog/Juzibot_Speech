@@ -75,11 +75,6 @@ export async function msgIntentDetect(msg, payload) {
         bot.Message.Type.Attachment,  // 包括文档
     ].includes(msg.type())) {
 
-        // console.log("111111111111\n11111111111111\n1111111111\n");
-        // console.log(msg);
-        // console.log("111111111111\n11111111111111\n1111111111\n");
-
-
         const fileBox = await msg.toFileBox()
         return {
             ...payload,

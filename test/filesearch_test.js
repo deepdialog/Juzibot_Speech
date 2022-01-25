@@ -10,27 +10,34 @@ describe('filesearch_test.js 👋',() => {
 // 搜索指令测试
 ///////////////////
 
-    const args_5 = {
+    var test_msg = new Array();
+    var test_payload = new Array();
+    var test_result = new Array();
+    var i = 1;
+
+    test_msg[i] = {
         text: () => {
-            return '搜索文件 a.txt'
+            return '搜索文件'
+            }
         }
-    }    
-    let payload_5 = {
+    test_payload[i] =  {
         roomTopic: null,
         isRoom: false,
-        text: args_5.text()
+        text: test_msg[i].text()
     }
-    it('🔍搜索指令测试', async () => {
-        const _expected_value_5= {
-            roomTopic: null,
-            isRoom: false,
-            text: '搜索文件 a.txt',
-            intent: 'search-file',
-            keywords: 'a.txt'
-        }
-        const _res_5 = await textIntentDetect(args_5,payload_5);    
-        assert.deepEqual(_res_5,_expected_value_5);
-    });
+    test_result[i] = {
+        intent: "search-file",
+        roomTopic: null,
+        isRoom: false,
+        keywords: "文件",
+        text: "搜索文件"       
+    }
+
+    it(String(i), async () => {
+        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+        assert.deepEqual(_res,test_result[i]);
+        
+    }); 
 });
 
     

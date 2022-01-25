@@ -8,21 +8,103 @@ describe('reboot_test.js 👋',() => {
 // /////////////
 // 更新重启&&成熟的机器人 _4
 // /////////////
-    const args_4 = {
-    text: () => {
-        return '更新重启'
+    var test_msg = new Array();
+    var test_payload = new Array();
+    var test_result = new Array();
+    var i = 1;
+
+    test_msg[i] = {
+        text: () => {
+            return '成熟的机器人'
+            }
         }
+    test_payload[i] =  {
+        roomTopic: null,
+        isRoom: false,
+        text: test_msg[i].text()
+    }
+    test_result[i] = {
+        roomTopic: null,
+        isRoom: false,
+        text: "成熟的机器人",
+        intent: 'todo'
     }
 
-    let payload_4 = {
-    roomTopic: null,
-    isRoom: false,
-    text: args_4.text()
+    it(String(i), async () => {
+        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+        assert.deepEqual(_res,test_result[i]);
+        
+    });  
+
+    i++;
+    test_msg[i] = {
+        text: () => {
+            return '更新重启'
+            }
+        }
+    test_payload[i] =  {
+        roomTopic: null,
+        isRoom: false,
+        text: test_msg[i].text()
+    }
+    test_result[i] = {
+        roomTopic: null,
+        isRoom: false,
+        text: "更新重启",
+        intent: 'todo'
     }
 
-    it('更新重启指令', async () => {
-        const query = { roomTopic: null, isRoom: false, text: '更新重启', intent: 'todo' };
-        const _res_4 = await textIntentDetect(args_4,payload_4); 
-        assert.deepEqual(query,_res_4);
-    });
+    it(String(i), async () => {
+        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+        assert.deepEqual(_res,test_result[i]);
+        
+    }); 
+
+    i++;
+    test_msg[i] = {
+        text: () => {
+            return '更新重启 123'
+            }
+        }
+    test_payload[i] =  {
+        roomTopic: null,
+        isRoom: false,
+        text: test_msg[i].text()
+    }
+    test_result[i] = {
+        roomTopic: null,
+        isRoom: false,
+        text: "更新重启 123",
+        intent: 'todo'
+    }
+
+    it(String(i), async () => {
+        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+        assert.deepEqual(_res,test_result[i]);
+        
+    }); 
+
+    i++;
+    test_msg[i] = {
+        text: () => {
+            return '更新重启 @123 /123'
+            }
+        }
+    test_payload[i] =  {
+        roomTopic: null,
+        isRoom: false,
+        text: test_msg[i].text()
+    }
+    test_result[i] = {
+        roomTopic: null,
+        isRoom: false,
+        text: "更新重启 @123 /123",
+        intent: 'todo'
+    }
+
+    it(String(i), async () => {
+        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+        assert.deepEqual(_res,test_result[i]);
+        
+    }); 
 })
