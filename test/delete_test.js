@@ -52,7 +52,7 @@ describe('delete_test.js 👋',() => {
         text: test_msg[i].text()
     }
     test_result[i] = {
-        intent: "get-search-file",
+        intent: "remove-search-file",
         roomTopic: null,
         isRoom: false,
         keywords: " ",
