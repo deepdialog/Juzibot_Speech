@@ -10,27 +10,86 @@ describe('delete_test.js 👋',() => {
 // 标签检测
 ///////////////////
 
-    const args_7 = {
+    var test_msg = new Array();
+    var test_payload = new Array();
+    var test_result = new Array();
+    var i = 1;
+
+    test_msg[i] = {
         text: () => {
-            return '删除文件 txt.jpg'
+            return '删除文件 1 搜索群文件 '
+            }
         }
-    }
-    let payload_7 = {
+    test_payload[i] =  {
         roomTopic: null,
         isRoom: false,
-        text: args_7.text()
+        text: test_msg[i].text()
     }
-    var _expected_value_7 = {
+    test_result[i] = {
+        intent: "get-search-file",
         roomTopic: null,
         isRoom: false,
-        text: '删除文件 txt.jpg',
-        intent: 'todo'
-      }
-    it('🚮删除文件', async () => {
+        keywords: " ",
+        number : 1,
+        text: "删除文件 1 搜索群文件 "       
+    }
+
+    it(String(i), async () => {
+        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+        assert.deepEqual(_res,test_result[i]);
         
-        const _res_7 = await textIntentDetect(args_7,payload_7); 
-        //console.log(_res_7);
-        assert.deepEqual(_res_7,_expected_value_7);
+    }); 
+
+    i++
+    test_msg[i] = {
+        text: () => {
+            return '文件  2 搜索群文件 '
+            }
+        }
+    test_payload[i] =  {
+        roomTopic: null,
+        isRoom: false,
+        text: test_msg[i].text()
+    }
+    test_result[i] = {
+        intent: "get-search-file",
+        roomTopic: null,
+        isRoom: false,
+        keywords: " ",
+        number : 2,
+        text: "文件  2 搜索群文件 "       
+    }
+
+    it(String(i), async () => {
+        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+        assert.deepEqual(_res,test_result[i]);
+        
+    });
+
+    i++
+    test_msg[i] = {
+        text: () => {
+            return '文件  9 搜索文件 '
+            }
+        }
+    test_payload[i] =  {
+        roomTopic: null,
+        isRoom: false,
+        text: test_msg[i].text()
+    }
+    test_result[i] = {
+        intent: "get-search-file",
+        roomTopic: null,
+        isRoom: false,
+        keywords: " ",
+        number : 9,
+        text: "文件  9 搜索文件 "       
+    }
+
+    it(String(i), async () => {
+        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+        assert.deepEqual(_res,test_result[i]);
+        
     });
 });
 

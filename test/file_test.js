@@ -17,7 +17,7 @@ describe('myfile_test.js 👋',() => {
 
     test_msg[i] = {
         text: () => {
-            return '文件 a 搜索群文件 '
+            return '文件 1 搜索群文件 '
             }
         }
     test_payload[i] =  {
@@ -26,11 +26,12 @@ describe('myfile_test.js 👋',() => {
         text: test_msg[i].text()
     }
     test_result[i] = {
-        intent: "search-file",
+        intent: "get-search-file",
         roomTopic: null,
         isRoom: false,
-        keywords: "文件",
-        text: "搜索文件"       
+        keywords: " ",
+        number : 1,
+        text: "文件 1 搜索群文件 "       
     }
 
     it(String(i), async () => {
@@ -38,6 +39,58 @@ describe('myfile_test.js 👋',() => {
         assert.deepEqual(_res,test_result[i]);
         
     }); 
+
+    i++
+    test_msg[i] = {
+        text: () => {
+            return '文件  2 搜索群文件 '
+            }
+        }
+    test_payload[i] =  {
+        roomTopic: null,
+        isRoom: false,
+        text: test_msg[i].text()
+    }
+    test_result[i] = {
+        intent: "get-search-file",
+        roomTopic: null,
+        isRoom: false,
+        keywords: " ",
+        number : 2,
+        text: "文件  2 搜索群文件 "       
+    }
+
+    it(String(i), async () => {
+        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+        assert.deepEqual(_res,test_result[i]);
+        
+    });
+
+    i++
+    test_msg[i] = {
+        text: () => {
+            return '文件  9 搜索文件 '
+            }
+        }
+    test_payload[i] =  {
+        roomTopic: null,
+        isRoom: false,
+        text: test_msg[i].text()
+    }
+    test_result[i] = {
+        intent: "get-search-file",
+        roomTopic: null,
+        isRoom: false,
+        keywords: " ",
+        number : 9,
+        text: "文件  9 搜索文件 "       
+    }
+
+    it(String(i), async () => {
+        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+        assert.deepEqual(_res,test_result[i]);
+        
+    });
 });
 
     

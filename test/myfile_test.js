@@ -10,23 +10,105 @@ describe('myfile_test.js 👋',() => {
 // 我的文件 功能检测
 ///////////////////
 
-    const args_8 = {
+    var test_msg = new Array();
+    var test_payload = new Array();
+    var test_result = new Array();
+    var i = 1;
+    
+    test_msg[i] = {
         text: () => {
             return '我的文件'
+            }
         }
-    }
-    let payload_8 = {
+    test_payload[i] =  {
         roomTopic: null,
         isRoom: false,
-        text: args_8.text()
+        text: test_msg[i].text()
     }
-    var _expected_value_8 = { roomTopic: null, isRoom: false, text: '我的文件', intent: 'list-file' }
-    
-    it('💰我的文件', async () => {
+    test_result[i] = {
+        roomTopic: null,
+        isRoom: false,
+        text: "我的文件",
+        intent: 'list-file'
+    }
+
+    it(String(i), async () => {
+        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+        assert.deepEqual(_res,test_result[i]);
         
-        const _res_8 = await textIntentDetect(args_8,payload_8); 
-        //console.log(_res_8);
-        assert.deepEqual(_res_8,_expected_value_8);
-    });
+    }); 
+
+    i++;
+    test_msg[i] = {
+        text: () => {
+            return '列出文件'
+            }
+        }
+    test_payload[i] =  {
+        roomTopic: null,
+        isRoom: false,
+        text: test_msg[i].text()
+    }
+    test_result[i] = {
+        roomTopic: null,
+        isRoom: false,
+        text: "列出文件",
+        intent: 'list-file'
+    }
+
+    it(String(i), async () => {
+        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+        assert.deepEqual(_res,test_result[i]);
+        
+    }); 
+
+    i++;
+    test_msg[i] = {
+        text: () => {
+            return '群文件'
+            }
+        }
+    test_payload[i] =  {
+        roomTopic: null,
+        isRoom: false,
+        text: test_msg[i].text()
+    }
+    test_result[i] = {
+        roomTopic: null,
+        isRoom: false,
+        text: "群文件",
+        intent: 'list-file'
+    }
+
+    it(String(i), async () => {
+        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+        assert.deepEqual(_res,test_result[i]);
+        
+    }); 
+
+    i++;
+    test_msg[i] = {
+        text: () => {
+            return '我的文件 123'
+            }
+        }
+    test_payload[i] =  {
+        roomTopic: null,
+        isRoom: false,
+        text: test_msg[i].text()
+    }
+    test_result[i] = {
+        roomTopic: null,
+        isRoom: false,
+        text: "我的文件 123",
+        intent: 'todo'
+    }
+
+    it(String(i), async () => {
+        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+        assert.deepEqual(_res,test_result[i]);
+        
+    }); 
+
 });
     
