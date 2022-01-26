@@ -32,13 +32,6 @@ describe('filesearch_test.js 👋',() => {
         keywords: "文件",
         text: "搜索文件"       
     }
-
-    it(String(i), async () => {
-        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-        assert.deepEqual(_res,test_result[i]);
-        
-    }); 
-
     i++;
     test_msg[i] = {
         text: () => {
@@ -57,12 +50,14 @@ describe('filesearch_test.js 👋',() => {
         keywords: "群文件",
         text: "搜索群文件"       
     }
-
-    it(String(i), async () => {
-        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-        assert.deepEqual(_res,test_result[i]);
-        
-    }); 
+    for(let i=1;i<=2;i++){
+        (function(i) {
+            it(String(i), async () => {
+                var _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+                assert.deepEqual(_res,test_result[i]);
+            }) 
+        })(i);
+    }
 });
 
     

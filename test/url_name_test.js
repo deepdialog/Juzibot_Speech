@@ -27,18 +27,12 @@ describe('url_name_test.js 👋',() => {
         text: '123 @abc https://me.w0x7ce.eu',
         intent: 'url',
         url: 'https://me.w0x7ce.eu'
-    }
-
-    it(String(i), async () => {
-        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-        assert.deepEqual(_res,test_result[i]);
-        
-    });  
+    } 
 
     i++;
     test_msg[i] = {
         text: () => {
-            return '123 https://me.w0x7ce.eu @abc'
+            return '123 https://me.w0x7ce.eu'
             }
         }
     test_payload[i] =  {
@@ -49,16 +43,11 @@ describe('url_name_test.js 👋',() => {
     test_result[i] = {
         roomTopic: null,
         isRoom: false,
-        text: '123 @abc https://me.w0x7ce.eu',
+        text: '123 https://me.w0x7ce.eu',
         intent: 'url',
         url: 'https://me.w0x7ce.eu'
     }
 
-    it(String(i), async () => {
-        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-        assert.deepEqual(_res,test_result[i]);
-        
-    }); 
     i++;
     test_msg[i] = {
         text: () => {
@@ -78,11 +67,6 @@ describe('url_name_test.js 👋',() => {
         url: 'https://me.w0x7ce.eu'
     }
 
-    it(String(i), async () => {
-        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-        assert.deepEqual(_res,test_result[i]);
-        
-    }); 
     i++;
     test_msg[i] = {
         text: () => {
@@ -102,11 +86,15 @@ describe('url_name_test.js 👋',() => {
         url: 'https://me.w0x7ce.eu/'
     }
     
-    it(String(i), async () => {
-        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-        assert.deepEqual(_res,test_result[i]);
-    }); 
-    //i++;
+    for(let i=1;i<=4;i++){
+        (function(i) {
+            it(String(i), async () => {
+                var _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+                assert.deepEqual(_res,test_result[i]);
+            }) 
+        })(i);
+    }
+    
 });
 
     

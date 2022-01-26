@@ -30,12 +30,6 @@ describe('reboot_test.js 👋',() => {
         intent: 'todo'
     }
 
-    it(String(i), async () => {
-        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-        assert.deepEqual(_res,test_result[i]);
-        
-    });  
-
     i++;
     test_msg[i] = {
         text: () => {
@@ -53,13 +47,6 @@ describe('reboot_test.js 👋',() => {
         text: "更新重启",
         intent: 'todo'
     }
-
-    it(String(i), async () => {
-        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-        assert.deepEqual(_res,test_result[i]);
-        
-    }); 
-
     i++;
     test_msg[i] = {
         text: () => {
@@ -77,12 +64,6 @@ describe('reboot_test.js 👋',() => {
         text: "更新重启 123",
         intent: 'todo'
     }
-
-    it(String(i), async () => {
-        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-        assert.deepEqual(_res,test_result[i]);
-        
-    }); 
 
     i++;
     test_msg[i] = {
@@ -102,9 +83,12 @@ describe('reboot_test.js 👋',() => {
         intent: 'todo'
     }
 
-    it(String(i), async () => {
-        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-        assert.deepEqual(_res,test_result[i]);
-        
-    }); 
+    for(let i=1;i<=3;i++){
+        (function(i) {
+            it(String(i), async () => {
+                var _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+                assert.deepEqual(_res,test_result[i]);
+            }) 
+        })(i);
+    }
 })

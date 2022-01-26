@@ -33,14 +33,7 @@ describe('myfile_test.js 👋',() => {
         number : 1,
         text: "文件 1 搜索群文件 "       
     }
-
-    it(String(i), async () => {
-        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-        assert.deepEqual(_res,test_result[i]);
-        
-    }); 
-
-    i++
+    i++;
     test_msg[i] = {
         text: () => {
             return '文件  2 搜索群文件 '
@@ -59,14 +52,7 @@ describe('myfile_test.js 👋',() => {
         number : 2,
         text: "文件  2 搜索群文件 "       
     }
-
-    it(String(i), async () => {
-        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-        assert.deepEqual(_res,test_result[i]);
-        
-    });
-
-    i++
+    i++;
     test_msg[i] = {
         text: () => {
             return '文件  9 搜索文件 '
@@ -85,12 +71,14 @@ describe('myfile_test.js 👋',() => {
         number : 9,
         text: "文件  9 搜索文件 "       
     }
-
-    it(String(i), async () => {
-        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-        assert.deepEqual(_res,test_result[i]);
-        
-    });
+    for(let i=1;i<=3;i++){
+        (function(i) {
+            it(String(i), async () => {
+                var _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+                assert.deepEqual(_res,test_result[i]);
+            }) 
+        })(i);
+    }
 });
 
     

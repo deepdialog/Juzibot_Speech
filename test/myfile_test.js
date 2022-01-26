@@ -31,13 +31,6 @@ describe('myfile_test.js 👋',() => {
         text: "我的文件",
         intent: 'list-file'
     }
-
-    it(String(i), async () => {
-        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-        assert.deepEqual(_res,test_result[i]);
-        
-    }); 
-
     i++;
     test_msg[i] = {
         text: () => {
@@ -55,13 +48,6 @@ describe('myfile_test.js 👋',() => {
         text: "列出文件",
         intent: 'list-file'
     }
-
-    it(String(i), async () => {
-        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-        assert.deepEqual(_res,test_result[i]);
-        
-    }); 
-
     i++;
     test_msg[i] = {
         text: () => {
@@ -79,13 +65,6 @@ describe('myfile_test.js 👋',() => {
         text: "群文件",
         intent: 'list-file'
     }
-
-    it(String(i), async () => {
-        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-        assert.deepEqual(_res,test_result[i]);
-        
-    }); 
-
     i++;
     test_msg[i] = {
         text: () => {
@@ -104,11 +83,14 @@ describe('myfile_test.js 👋',() => {
         intent: 'todo'
     }
 
-    it(String(i), async () => {
-        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-        assert.deepEqual(_res,test_result[i]);
-        
-    }); 
+    for(let i=1;i<3;i++){
+        (function(i) {
+            it(String(i), async () => {
+                var _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+                assert.deepEqual(_res,test_result[i]);
+            }) 
+        })(i);
+    }
 
 });
     

@@ -26,20 +26,13 @@ describe('delete_test.js 👋',() => {
         text: test_msg[i].text()
     }
     test_result[i] = {
-        intent: "get-search-file",
+        intent: "remove-search-file",
         roomTopic: null,
         isRoom: false,
         keywords: " ",
         number : 1,
         text: "删除文件 1 搜索群文件 "       
     }
-
-    it(String(i), async () => {
-        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-        assert.deepEqual(_res,test_result[i]);
-        
-    }); 
-
     i++
     test_msg[i] = {
         text: () => {
@@ -60,11 +53,15 @@ describe('delete_test.js 👋',() => {
         text: "删除文件 6 搜索文件 "       
     }
 
-    it(String(i), async () => {
-        const _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-        assert.deepEqual(_res,test_result[i]);
-        
-    });
+
+    for(let i=1;i<2;i++){
+        (function(i) {
+            it(String(i), async () => {
+                var _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+                assert.deepEqual(_res,test_result[i]);
+            }) 
+        })(i);
+    }
 
 });
 
