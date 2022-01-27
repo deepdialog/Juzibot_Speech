@@ -72,5 +72,3 @@ describe('filesearch_test.js 👋',() => {
         }) 
     }
 });
-
-    

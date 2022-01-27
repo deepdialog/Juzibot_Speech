@@ -94,8 +94,4 @@ describe('delete_test.js 👋',() => {
             assert.deepEqual(_res, item.result)
         }) 
     } 
-
 });
-
-
-    

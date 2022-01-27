@@ -38,6 +38,7 @@ describe('myfile_test.js 👋',() => {
     item.payload.text = item.msg.text();
     item.result.text = item.msg.text();
     tests.push(item)
+
     item = {
         msg : {
             text: () => {
@@ -107,4 +108,3 @@ describe('myfile_test.js 👋',() => {
     }
 
 });
-    

@@ -108,5 +108,3 @@ describe('url_name_test.js 👋',() => {
     }
     
 });
-
-    
