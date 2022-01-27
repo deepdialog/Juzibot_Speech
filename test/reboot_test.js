@@ -13,82 +13,96 @@ describe('reboot_test.js 👋',() => {
     var test_result = new Array();
     var i = 1;
 
-    test_msg[i] = {
-        text: () => {
-            return '成熟的机器人'
-            }
+    const tests = [];
+    let item;
+    item = {
+        msg : {
+            text: () => {
+                return '成熟的机器人'
+                }
+            },
+        payload : {
+            isRoom: false,
+            text: null,
+        },
+        result : {
+            intent: "todo",
+            isRoom: false,
+            text: null ,      
         }
-    test_payload[i] =  {
-        roomTopic: null,
-        isRoom: false,
-        text: test_msg[i].text()
-    }
-    test_result[i] = {
-        roomTopic: null,
-        isRoom: false,
-        text: "成熟的机器人",
-        intent: 'todo'
     }
 
-    i++;
-    test_msg[i] = {
-        text: () => {
-            return '更新重启'
-            }
+    item.payload.text = item.msg.text();
+    item.result.text = item.msg.text();
+    tests.push(item)
+
+    item = {
+        msg : {
+            text: () => {
+                return '更新重启'
+                }
+            },
+        payload : {
+            isRoom: false,
+            text: null,
+        },
+        result : {
+            intent: "todo",
+            isRoom: false,
+            text: null ,      
         }
-    test_payload[i] =  {
-        roomTopic: null,
-        isRoom: false,
-        text: test_msg[i].text()
-    }
-    test_result[i] = {
-        roomTopic: null,
-        isRoom: false,
-        text: "更新重启",
-        intent: 'todo'
-    }
-    i++;
-    test_msg[i] = {
-        text: () => {
-            return '更新重启 123'
-            }
-        }
-    test_payload[i] =  {
-        roomTopic: null,
-        isRoom: false,
-        text: test_msg[i].text()
-    }
-    test_result[i] = {
-        roomTopic: null,
-        isRoom: false,
-        text: "更新重启 123",
-        intent: 'todo'
     }
 
-    i++;
-    test_msg[i] = {
-        text: () => {
-            return '更新重启 @123 /123'
-            }
+    item.payload.text = item.msg.text();
+    item.result.text = item.msg.text();
+    tests.push(item)
+
+    item = {
+        msg : {
+            text: () => {
+                return '更新重启 123'
+                }
+            },
+        payload : {
+            isRoom: false,
+            text: null,
+        },
+        result : {
+            intent: "todo",
+            isRoom: false,
+            text: null ,      
         }
-    test_payload[i] =  {
-        roomTopic: null,
-        isRoom: false,
-        text: test_msg[i].text()
-    }
-    test_result[i] = {
-        roomTopic: null,
-        isRoom: false,
-        text: "更新重启 @123 /123",
-        intent: 'todo'
     }
 
-    for(let i=1;i<=3;i++){
-        (function(i) {
-            it(String(i), async () => {
-                var _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-                assert.deepEqual(_res,test_result[i]);
-            }) 
-        })(i);
+    item.payload.text = item.msg.text();
+    item.result.text = item.msg.text();
+    tests.push(item)
+
+    item = {
+        msg : {
+            text: () => {
+                return '更新重启 @123 /123'
+                }
+            },
+        payload : {
+            isRoom: false,
+            text: null,
+        },
+        result : {
+            intent: "todo",
+            isRoom: false,
+            text: null ,      
+        }
+    }
+
+    item.payload.text = item.msg.text();
+    item.result.text = item.msg.text();
+    tests.push(item)
+   
+    for (const item of tests) {
+        it(item.msg.text(), async () => {
+            const _res = await textIntentDetect(item.msg, item.payload)
+            assert.deepEqual(_res, item.result)
+        }) 
     }
 })

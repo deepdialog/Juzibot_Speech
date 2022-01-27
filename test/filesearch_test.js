@@ -15,48 +15,61 @@ describe('filesearch_test.js 👋',() => {
     var test_result = new Array();
     var i = 1;
 
-    test_msg[i] = {
-        text: () => {
-            return '搜索文件'
-            }
+    const tests = [];
+    let item;
+
+    item = {
+        msg : {
+            text: () => {
+                return '搜索文件'
+                }
+            },
+        payload : {
+            isRoom: false,
+            text: null,
+        },
+        result : {
+            intent: "search-file",
+            isRoom: false,
+            keywords: "文件",
+            text: null ,      
         }
-    test_payload[i] =  {
-        roomTopic: null,
-        isRoom: false,
-        text: test_msg[i].text()
     }
-    test_result[i] = {
-        intent: "search-file",
-        roomTopic: null,
-        isRoom: false,
-        keywords: "文件",
-        text: "搜索文件"       
-    }
-    i++;
-    test_msg[i] = {
-        text: () => {
-            return '搜索群文件'
-            }
+
+    item.payload.text = item.msg.text()
+    item.result.text = item.msg.text()
+    tests.push(item)
+
+    
+    item = {
+        msg : {
+            text: () => {
+                return '搜索群文件'
+                }
+            },
+        payload : {
+            isRoom: false,
+            text: null,
+        },
+        result : {
+            intent: "search-file",
+            isRoom: false,
+            keywords: "群文件",
+            text: null ,      
         }
-    test_payload[i] =  {
-        roomTopic: null,
-        isRoom: false,
-        text: test_msg[i].text()
     }
-    test_result[i] = {
-        intent: "search-file",
-        roomTopic: null,
-        isRoom: false,
-        keywords: "群文件",
-        text: "搜索群文件"       
-    }
-    for(let i=1;i<=2;i++){
-        (function(i) {
-            it(String(i), async () => {
-                var _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-                assert.deepEqual(_res,test_result[i]);
-            }) 
-        })(i);
+
+    
+
+    item.payload.text = item.msg.text()
+    item.result.text = item.msg.text()
+    tests.push(item)
+
+    for (const item of tests) {
+        it(item.msg.text(), async () => {
+            const _res = await textIntentDetect(item.msg, item.payload)
+            assert.deepEqual(_res, item.result)
+        }) 
     }
 });
 

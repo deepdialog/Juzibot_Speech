@@ -15,81 +15,95 @@ describe('myfile_test.js 👋',() => {
     var test_result = new Array();
     var i = 1;
     
-    test_msg[i] = {
-        text: () => {
-            return '我的文件'
-            }
+    const tests = [];
+    let item;
+
+    item = {
+        msg : {
+            text: () => {
+                return '我的文件'
+                }
+            },
+        payload : {
+            isRoom: false,
+            text: null,
+        },
+        result : {
+            intent: "list-file",
+            isRoom: false,
+            text: null ,      
         }
-    test_payload[i] =  {
-        roomTopic: null,
-        isRoom: false,
-        text: test_msg[i].text()
-    }
-    test_result[i] = {
-        roomTopic: null,
-        isRoom: false,
-        text: "我的文件",
-        intent: 'list-file'
-    }
-    i++;
-    test_msg[i] = {
-        text: () => {
-            return '列出文件'
-            }
-        }
-    test_payload[i] =  {
-        roomTopic: null,
-        isRoom: false,
-        text: test_msg[i].text()
-    }
-    test_result[i] = {
-        roomTopic: null,
-        isRoom: false,
-        text: "列出文件",
-        intent: 'list-file'
-    }
-    i++;
-    test_msg[i] = {
-        text: () => {
-            return '群文件'
-            }
-        }
-    test_payload[i] =  {
-        roomTopic: null,
-        isRoom: false,
-        text: test_msg[i].text()
-    }
-    test_result[i] = {
-        roomTopic: null,
-        isRoom: false,
-        text: "群文件",
-        intent: 'list-file'
-    }
-    i++;
-    test_msg[i] = {
-        text: () => {
-            return '我的文件 123'
-            }
-        }
-    test_payload[i] =  {
-        roomTopic: null,
-        isRoom: false,
-        text: test_msg[i].text()
-    }
-    test_result[i] = {
-        roomTopic: null,
-        isRoom: false,
-        text: "我的文件 123",
-        intent: 'todo'
     }
 
-    for(let i=1;i<3;i++){
-        (function(i) {
-            it(String(i), async () => {
-                var _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-                assert.deepEqual(_res,test_result[i]);
-            }) 
-        })(i);
+    item.payload.text = item.msg.text();
+    item.result.text = item.msg.text();
+    tests.push(item)
+    item = {
+        msg : {
+            text: () => {
+                return '列出文件'
+                }
+            },
+        payload : {
+            isRoom: false,
+            text: null,
+        },
+        result : {
+            intent: "list-file",
+            isRoom: false,
+            text: null ,      
+        }
+    }
+
+    item.payload.text = item.msg.text();
+    item.result.text = item.msg.text();
+    tests.push(item)
+    item = {
+        msg : {
+            text: () => {
+                return '群文件'
+                }
+            },
+        payload : {
+            isRoom: false,
+            text: null,
+        },
+        result : {
+            intent: "list-file",
+            isRoom: false,
+            text: null ,      
+        }
+    }
+
+    item.payload.text = item.msg.text();
+    item.result.text = item.msg.text();
+    tests.push(item)
+    item = {
+        msg : {
+            text: () => {
+                return '我的文件 123'
+                }
+            },
+        payload : {
+            isRoom: false,
+            text: null,
+        },
+        result : {
+            intent: "todo",
+            isRoom: false,
+            text: null ,      
+        }
+    }
+
+    item.payload.text = item.msg.text();
+    item.result.text = item.msg.text(); //不太合理
+    tests.push(item)
+
+    for (const item of tests) {
+        it(item.msg.text(), async () => {
+            const _res = await textIntentDetect(item.msg, item.payload)
+            assert.deepEqual(_res, item.result)
+        }) 
     }
 
 });

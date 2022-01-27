@@ -14,67 +14,87 @@ describe('biaoqian_test.js 👋',() => {
     var test_result = new Array();
     var i = 1;
     
-    test_msg[i] = {
-        text: () => {
-            return '标签'
-            }
+    const tests = [];
+    let item;
+
+    item = {
+        msg : {
+            text: () => {
+                return '标签'
+                }
+            },
+        payload : {
+            isRoom: false,
+            text: null,
+        },
+        result : {
+            intent: "todo",
+            isRoom: false,
+            text: null , 
         }
-    test_payload[i] =  {
-        roomTopic: null,
-        isRoom: false,
-        text: test_msg[i].text()
-    }
-    test_result[i] = {
-        roomTopic: null,
-        isRoom: false,
-        text: "标签",
-        intent: 'todo'
     }
 
-    i++;
-    test_msg[i] = {
-        text: () => {
-            return '/标签'
-            }
+    item.payload.text = item.msg.text()
+    item.result.text = item.msg.text()
+    tests.push(item)
+
+    item = {
+        msg : {
+            text: () => {
+                return '/标签'
+                }
+            },
+        payload : {
+            isRoom: false,
+            text: null,
+        },
+        result : {
+            intent: "todo",
+            isRoom: false,
+            text: null , 
         }
-    test_payload[i] =  {
-        roomTopic: null,
-        isRoom: false,
-        text: test_msg[i].text()
-    }
-    test_result[i] = {
-        roomTopic: null,
-        isRoom: false,
-        text: "标签",
-        intent: 'todo'
     }
 
-    i++;
-    test_msg[i] = {
-        text: () => {
-            return '/标签 asd'
-            }
+    item.payload.text = item.msg.text()
+    item.result.text = '标签'
+    tests.push(item)
+
+    item = {
+        msg : {
+            text: () => {
+                return '/标签 asd'
+                }
+            },
+        payload : {
+            isRoom: false,
+            text: null,
+        },
+        result : {
+            intent: "retag",
+            isRoom: false,
+            text: null , 
+            newTag: " asd"
         }
-    test_payload[i] =  {
-        roomTopic: null,
-        isRoom: false,
-        text: test_msg[i].text()
-    }
-    test_result[i] = {
-        roomTopic: null,
-        isRoom: false,
-        text: "/标签 asd",
-        newTag: " asd",
-        intent: 'retag'
     }
 
-    for(let i=1;i<3;i++){
-        (function(i) {
-            it(String(i), async () => {
-                var _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-                assert.deepEqual(_res,test_result[i]);
-            }) 
-        })(i);
+    item.payload.text = item.msg.text()
+    item.result.text = '/标签 asd'
+    tests.push(item)
+
+    // for(let i=1;i<3;i++){
+    //     (function(i) {
+    //         it(String(i), async () => {
+    //             var _res = await textIntentDetect(test_msg[i],test_payload[i]); 
+    //             assert.deepEqual(_res,test_result[i]);
+    //         }) 
+    //     })(i);
+    // }
+
+    for (const item of tests) {
+        it(item.msg.text(), async () => {
+            const _res = await textIntentDetect(item.msg, item.payload)
+            assert.deepEqual(_res, item.result)
+        }) 
     }
 
 });
