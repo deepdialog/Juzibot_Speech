@@ -85,7 +85,7 @@ describe('myfile_test.js 👋',() => {
             text: null,
         },
         result : {
-            intent: "todo",
+            intent: "list-file",
             isRoom: false,
             text: null ,      
         }
@@ -99,7 +99,7 @@ describe('myfile_test.js 👋',() => {
     item = {
         msg : {
             text: () => {
-                return '我的文件 '
+                return '我的文件a '
                 }
             },
         payload : {
@@ -107,7 +107,7 @@ describe('myfile_test.js 👋',() => {
             text: null,
         },
         result : {
-            intent: "todo",
+            intent: "list-file",
             isRoom: false,
             text: null ,      
         }
