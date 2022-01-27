@@ -5,11 +5,7 @@ var describe = Mocha.describe
 var it = Mocha.it
 
 describe('url_name_test.js 👋',() => {
-        
-    var test_msg = new Array();
-    var test_payload = new Array();
-    var test_result = new Array();
-    var i = 1;
+    
     const tests = [];
     let item;
     item = {

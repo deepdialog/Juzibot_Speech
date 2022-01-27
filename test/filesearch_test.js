@@ -10,11 +10,6 @@ describe('filesearch_test.js 👋',() => {
 // 搜索指令测试
 ///////////////////
 
-    var test_msg = new Array();
-    var test_payload = new Array();
-    var test_result = new Array();
-    var i = 1;
-
     const tests = [];
     let item;
 

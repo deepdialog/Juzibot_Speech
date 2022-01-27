@@ -8,11 +8,6 @@ describe('reboot_test.js 👋',() => {
 // /////////////
 // 更新重启&&成熟的机器人 _4
 // /////////////
-    var test_msg = new Array();
-    var test_payload = new Array();
-    var test_result = new Array();
-    var i = 1;
-
     const tests = [];
     let item;
     item = {

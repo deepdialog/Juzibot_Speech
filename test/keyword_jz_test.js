@@ -9,12 +9,6 @@ describe('keyword_jz.js 👋',() => {
 ////////////////////
 // 小橘子 橘子 关键字检测
 ///////////////////
-
-    var test_msg = new Array();
-    var test_payload = new Array();
-    var test_result = new Array();
-    var i = 1;
-
     const tests = [];
     let item;
 
@@ -231,7 +225,7 @@ describe('keyword_jz.js 👋',() => {
     item = {
         msg : {
             text: () => {
-                return '# \#'
+                return '# #'
                 }
             },
         payload : {
@@ -246,13 +240,13 @@ describe('keyword_jz.js 👋',() => {
     }
 
     item.payload.text = item.msg.text()
-    item.result.text = " \#"
+    item.result.text = item.msg.text()
     tests.push(item)
     
     item = {
         msg : {
             text: () => {
-                return '\##'
+                return 's##'
                 }
             },
         payload : {

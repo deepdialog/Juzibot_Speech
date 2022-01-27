@@ -9,13 +9,6 @@ describe('delete_test.js 👋',() => {
 ////////////////////
 // 标签检测
 ///////////////////
-
-    var test_msg = new Array();
-    var test_payload = new Array();
-    var test_result = new Array();
-    var i = 1;
-
-
     const tests = [];
     let item;
 
