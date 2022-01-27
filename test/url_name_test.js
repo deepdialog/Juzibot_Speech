@@ -81,7 +81,7 @@ describe('url_name_test.js 👋',() => {
     item = {
         msg : {
             text: () => {
-                return '@13213 https://me.w0x7ce.eu/ //'
+                return '@13213 https://me.w0x7ce.eu //'
                 }
             },
         payload : {
@@ -92,7 +92,7 @@ describe('url_name_test.js 👋',() => {
             intent: "url",
             isRoom: false,
             text: null , 
-            url: "https://me.w0x7ce.eu/"     
+            url: "https://me.w0x7ce.eu"     
         }
     }
 
@@ -106,5 +106,4 @@ describe('url_name_test.js 👋',() => {
             assert.deepEqual(_res, item.result)
         }) 
     }
-    
 });
