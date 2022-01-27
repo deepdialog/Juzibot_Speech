@@ -95,6 +95,28 @@ describe('myfile_test.js 👋',() => {
     item.result.text = item.msg.text(); //不太合理
     tests.push(item)
 
+    tests.push(item)
+    item = {
+        msg : {
+            text: () => {
+                return '我的文件 '
+                }
+            },
+        payload : {
+            isRoom: false,
+            text: null,
+        },
+        result : {
+            intent: "todo",
+            isRoom: false,
+            text: null ,      
+        }
+    }
+
+    item.payload.text = item.msg.text();
+    item.result.text = item.msg.text(); //不太合理
+    tests.push(item)
+
     for (const item of tests) {
         it(item.msg.text(), async () => {
             const _res = await textIntentDetect(item.msg, item.payload)

@@ -225,7 +225,7 @@ describe('keyword_jz.js 👋',() => {
     item = {
         msg : {
             text: () => {
-                return '# #'
+                return ' #'
                 }
             },
         payload : {
@@ -240,7 +240,7 @@ describe('keyword_jz.js 👋',() => {
     }
 
     item.payload.text = item.msg.text()
-    item.result.text = item.msg.text()
+    item.result.text = " ",
     tests.push(item)
     
     item = {
@@ -261,7 +261,7 @@ describe('keyword_jz.js 👋',() => {
     }
 
     item.payload.text = item.msg.text()
-    item.result.text = "#"
+    item.result.text = "s#"
     tests.push(item)
     
     for (const item of tests) {
