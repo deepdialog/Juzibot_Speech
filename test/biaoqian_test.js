@@ -81,23 +81,14 @@ describe('biaoqian_test.js 👋',() => {
     item.result.text = '/标签 asd'
     tests.push(item)
 
-    // for(let i=1;i<3;i++){
-    //     (function(i) {
-    //         it(String(i), async () => {
-    //             var _res = await textIntentDetect(test_msg[i],test_payload[i]); 
-    //             assert.deepEqual(_res,test_result[i]);
-    //         }) 
-    //     })(i);
-    // }
-
     for (const item of tests) {
         it(item.msg.text(), async () => {
             const _res = await textIntentDetect(item.msg, item.payload)
             assert.deepEqual(_res, item.result)
         }) 
     }
-
 });
+ 
 
 
     
