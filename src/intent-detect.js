@@ -241,7 +241,7 @@ export async function textIntentDetect(msg, payload) {
         }
     }
 
-    m = text.match(/^(我的文件.*|列出文件.*|群文件.*)$/)
+    m = text.match(/^(我的文件|列出文件|群文件).*$/)
     if (m) {
         return {
             ...payload,
