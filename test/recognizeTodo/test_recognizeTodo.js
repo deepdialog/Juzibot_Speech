@@ -262,7 +262,7 @@ describe('test_recognizeTodo.js 👋',() => {
     item = {
         msg : {
             text: () => {
-                return '每天16:00 abc'
+                return '明天16:00 abc'
                 }
             },
         payload : {
