@@ -1,5 +1,5 @@
 import assert from 'assert'
-import { textIntentDetect } from '../src/intent-detect.js' //测试
+import { textIntentDetect } from '../../src/intent-detect.js' //测试
 import Mocha from 'mocha'
 var describe = Mocha.describe
 var it = Mocha.it
