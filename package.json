@@ -8,7 +8,7 @@
     "lint": "eslint src/",
     "lintfront": "eslint fronts/src/",
     "linttest": "eslint test/",
-    "test": "mocha"
+    "test": "mocha $(find test -name '*.js')"
   },
   "repository": {
     "type": "git",
