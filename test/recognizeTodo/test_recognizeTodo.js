@@ -144,7 +144,30 @@ describe('test_recognizeTodo.js 👋',() => {
             contactId : 1,
 
         },
-        recognizeTodo_result : "我明天1:00提醒你哦\n" ///f
+        recognizeTodo_result : "我明天1:00提醒你哦\n" ///ffff
+    }
+
+    item = {
+        msg : {
+            text: () => {
+                return '明天13：00'
+                }
+            },
+        payload : {
+            isRoom: false,
+            text: null,
+        },
+        result : {
+            intent: "todo",
+            isRoom: false,
+            text: null , 
+        },
+
+        intent : {
+            contactId : 1,
+
+        },
+        recognizeTodo_result : "我明天1:00提醒你哦\n" ///ffff
     }
 
     item.payload.text = item.msg.text()
@@ -179,6 +202,91 @@ describe('test_recognizeTodo.js 👋',() => {
     item.result.text = item.msg.text()
     item.intent.text = item.result.text
     tests.push(item)
+
+    item = {
+        msg : {
+            text: () => {
+                return '每天 13:00'
+                }
+            },
+        payload : {
+            isRoom: false,
+            text: null,
+        },
+        result : {
+            intent: "todo",
+            isRoom: false,
+            text: null , 
+        },
+
+        intent : {
+            contactId : 1,
+
+        },
+        recognizeTodo_result : "我明天1:00提醒你哦\n" //ffff
+    }
+
+    item.payload.text = item.msg.text()
+    item.result.text = item.msg.text()
+    item.intent.text = item.result.text
+    tests.push(item)
+
+    item = {
+        msg : {
+            text: () => {
+                return '每星期三'
+                }
+            },
+        payload : {
+            isRoom: false,
+            text: null,
+        },
+        result : {
+            intent: "todo",
+            isRoom: false,
+            text: null , 
+        },
+
+        intent : {
+            contactId : 1,
+
+        },
+        recognizeTodo_result : "我晚上九点提醒你哦\n" //ffff
+    }
+
+    item.payload.text = item.msg.text()
+    item.result.text = item.msg.text()
+    item.intent.text = item.result.text
+    tests.push(item)
+
+    item = {
+        msg : {
+            text: () => {
+                return '每天16:00 abc'
+                }
+            },
+        payload : {
+            isRoom: false,
+            text: null,
+        },
+        result : {
+            intent: "todo",
+            isRoom: false,
+            text: null , 
+        },
+
+        intent : {
+            contactId : 1,
+
+        },
+        recognizeTodo_result : "我今天4:00提醒你哦\n" //ffff
+    }
+
+    item.payload.text = item.msg.text()
+    item.result.text = item.msg.text()
+    item.intent.text = item.result.text
+    tests.push(item)
+
 
     for (const item of tests) {
         it(item.msg.text(), async () => {
