@@ -279,7 +279,7 @@ describe('test_recognizeTodo.js 👋',() => {
             contactId : 1,
 
         },
-        recognizeTodo_result : "我今天4:00提醒你哦\n" //ffff
+        recognizeTodo_result : "我明天4:00提醒你哦\n" //ffff
     }
 
     item.payload.text = item.msg.text()

@@ -3,6 +3,7 @@ import process from 'process'
 import fetch from 'node-fetch'
 
 const URL = process.env.TEXT_VECTOR || 'http://localhost:10950/api/encode'
+//const URL = process.env.TEXT_VECTOR || 'http://localhost:20950/api/sts/'
 
 /**
  * 文字转换为向量，类似谷歌的Universal Sentence Encoder
