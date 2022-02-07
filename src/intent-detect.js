@@ -8,6 +8,8 @@
 import { bot } from './bot.js'
 import { queryIntent } from './intent-query-detect.js'
 import moment from 'moment'
+import fs from 'fs'
+import fetch from 'node-fetch'
 
 /**
  * 消息意图识别，识别后的意图会提交给policy
@@ -116,12 +118,37 @@ export async function msgIntentDetect(msg, payload) {
     if ([
         bot.Message.Type.Audio
     ].includes(msg.type())) {
-        console.log(msg.text);
-        const fileBox = await msg.toFileBox()
+        const filePath=""
+        const t=1
+        //console.log(msg.text);
+        //const fileBox = await msg.toFileBox()
+        const url = 'http://0.0.0.0:61111'
+        const audioFileBox = await msg.toFileBox()
+        // FileBox 
+        // name: '66cc36e4-59fa-4f8f-8de4-b1bc72a0e9ce.slk',
+        //const audio_dir = filePath + t + '.silk'  // eslint-disable-line
+        const audio_dir = audioFileBox.name
+        // console.log(audio_dir)
+        // console.log(audio_dir)
+        // console.log(audio_dir)
+        await audioFileBox.toFile(audioFileBox.name, true)
+        const body = {
+            lol: '1',
+            audio_name: audioFileBox.name,
+            audio_data: "data:audio/silk;base64," + fs.readFileSync(audio_dir, 'base64')  // eslint-disable-line
+            // img: "data:image/gif;base64,"+fs.readFileSync("/storage/lol/test/nodejs/octocat.png", 'base64')
+        };  // eslint-disable-line
+        const response = await fetch(url + '/api/audio/', {
+            body: JSON.stringify(body),
+            method: 'post',
+            headers: { 'Content-Type': 'application/json' } // eslint-disable-line
+        }); // eslint-disable-line
+        const data = await response.json()
+        await msg.say(JSON.stringify(data)); // eslint-disable-line
         return {
             ...payload,
             intent: 'file',
-            file: fileBox,
+            file: audioFileBox,
         }
     }
 

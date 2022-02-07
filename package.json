@@ -37,7 +37,7 @@
     "minio": "^7.0.19",
     "moment": "^2.29.1",
     "node-cron": "^3.0.0",
-    "node-fetch": "^3.0.0",
+    "node-fetch": "^3.2.0",
     "pdf-to-text": "0.0.7",
     "puppeteer-core": "^11.0.0",
     "qrcode-terminal": "^0.12.0",
@@ -52,7 +52,7 @@
   "devDependencies": {
     "eslint": "^8.1.0",
     "jsdoc": "^3.6.7",
-    "mocha": "^9.1.4",
-    "jsdoc-to-markdown": "^7.1.0"
+    "jsdoc-to-markdown": "^7.1.0",
+    "mocha": "^9.1.4"
   }
 }

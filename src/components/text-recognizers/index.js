@@ -169,9 +169,9 @@ export async function recognizeTodo(msg, intent) {
             })
         }
     }
-    return msgs ; // add for test
+    //return msgs ; uncomment  for test
     // TODO: todo 页面
-    msg.say(msgs + `更多todso管理点击这里：https://...`)
+    msg.say(msgs + `更多todo管理点击这里：https://...`)
 }
 
 /**
