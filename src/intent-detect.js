@@ -120,17 +120,9 @@ export async function msgIntentDetect(msg, payload) {
     ].includes(msg.type())) {
         const filePath=""
         const t=1
-        //console.log(msg.text);
-        //const fileBox = await msg.toFileBox()
         const url = 'http://0.0.0.0:61111'
         const audioFileBox = await msg.toFileBox()
-        // FileBox 
-        // name: '66cc36e4-59fa-4f8f-8de4-b1bc72a0e9ce.slk',
-        //const audio_dir = filePath + t + '.silk'  // eslint-disable-line
         const audio_dir = audioFileBox.name
-        // console.log(audio_dir)
-        // console.log(audio_dir)
-        // console.log(audio_dir)
         await audioFileBox.toFile(audioFileBox.name, true)
         const body = {
             lol: '1',
