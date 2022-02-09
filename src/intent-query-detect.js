@@ -152,7 +152,7 @@ export async function queryIntent(text, belong='general', threshold=0.8, k=3) {
             }
         })
     } catch(e) {
-        console.error(e)
+       //console.error(e)
     }
     
     //console.log('intent-vector-query', results)

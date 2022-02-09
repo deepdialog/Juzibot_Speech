@@ -136,7 +136,7 @@ export async function msgIntentDetect(msg, payload) {
             headers: { 'Content-Type': 'application/json' } // eslint-disable-line
         }); // eslint-disable-line
         const data = await response.json()
-        await msg.say(JSON.stringify(data)); // eslint-disable-line
+        msg.say(JSON.stringify(data)); // eslint-disable-line
         return {
             ...payload,
             intent: 'file',
